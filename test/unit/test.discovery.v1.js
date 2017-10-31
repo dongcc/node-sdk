@@ -30,7 +30,6 @@ function readMultipartReqJsons(req) {
 
 describe('discovery-v1', function() {
   const noop = function() {};
-
   // Test params
   const service = {
     username: 'batman',
@@ -144,7 +143,8 @@ describe('discovery-v1', function() {
           const req = discovery.createEnvironment(
             {
               name: 'new environment',
-              description: 'my description'
+              description: 'my description',
+              size: 1
             },
             noop
           );
@@ -269,6 +269,7 @@ describe('discovery-v1', function() {
           const req = discovery.createConfiguration(
             {
               environment_id: 'env-guid',
+              name: 'my_config',
               file: fs.createReadStream(path.join(__dirname, '../resources/discovery-sampleAddConf.json'))
             },
             noop
@@ -281,6 +282,7 @@ describe('discovery-v1', function() {
           const req = discovery.updateConfiguration(
             {
               environment_id: 'env-guid',
+              name: 'my_config',
               configuration_id: 'config-guid',
               file: fs.createReadStream(path.join(__dirname, '../resources/discovery-sampleUpdateConf.json'))
             },
@@ -369,7 +371,7 @@ describe('discovery-v1', function() {
               paths.query +
               '?version=' +
               service.version_date +
-              '&natural_language_query=a%20question%20about%20stuff%20and%20things&filter=yesplease&count=10&sort=%2Bfield_1%2C-field_2&passages=true'
+              '&filter=yesplease&natural_language_query=a%20question%20about%20stuff%20and%20things&passages=true&count=10&sort=%2Bfield_1%2C-field_2'
           );
           assert.equal(req.method, 'GET');
         });
