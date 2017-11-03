@@ -38,7 +38,7 @@ const OPENING_MESSAGE_PARAMS_ALLOWED = [
   'speaker_labels'
 ];
 
-const QUERY_PARAMS_ALLOWED = ['model', 'X-Watson-Learning-Opt-Out', 'watson-token', 'customization_id'];
+const QUERY_PARAMS_ALLOWED = ['model', 'X-Watson-Learning-Opt-Out', 'watson-token', 'customization_id', 'acoustic_customization_id'];
 
 /**
  * pipe()-able Node.js Readable/Writeable stream - accepts binary audio and emits text in it's `data` events.
